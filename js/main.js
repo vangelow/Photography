@@ -34,7 +34,7 @@ $(document).ready(function(){
 	})
 
 	$('.initial').click( function() {
-		$('.menu-wrap, .menu-inner, .morph-shape').addClass('show-menu');
+		$('.menu-wrap, .menu-inner, .morph-shape').toggleClass('show-menu');
 	});
 	$('#fullpage, .page-scroll').click( function() {
 		$('.menu-wrap, .menu-inner, .morph-shape').removeClass('show-menu');

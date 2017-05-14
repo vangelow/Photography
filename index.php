@@ -1,5 +1,7 @@
 
-
+<?php
+session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -24,7 +26,26 @@
 
     </head>
     <body>
+        <?php if(isset($_SESSION['username'])){
+            if($_SESSION['username']=='admin'){
+                ?>
+                <form action="slide1.php" method="post" enctype="multipart/form-data">
+    Select image to upload to slider:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+    <select name="slideOption">
+  <option value="slide1">Слайд 1</option>
+  <option value="slide2">Слайд 2</option>
+  <option value="slide3">Слайд 3</option>
+  <option value="slide4">Слайд 4</option>
+  </select>
+                <?php
+            }
+        }?>
 
+  
+
+</form>
         <div class="site-content">
             <div class="initial">
                 <span>SD</span>
@@ -49,11 +70,30 @@
               </div>
             </div>
             <div id="fullpage">
+                <div> 
+                    
+                </div>
                 <div class="section owl-carousel" id="home">
-                    <div class="slide slide1"></div>
-                    <div class="slide slide2"></div>
-                    <div class="slide slide3"></div>
-                    <div class="slide slide4"></div>
+                    <div class="slide slide1"><?php 
+                    $path =$_SERVER['PHP_SELF'];
+                    $path = str_replace('index.php', '', $path);?>
+                    <img src="<?php echo 'http://localhost' . $path ?>uploads/slider/1.jpg">
+                </div>
+                    <div class="slide slide2">
+                    <?php 
+                    $path =$_SERVER['PHP_SELF'];
+                    $path = str_replace('index.php', '', $path);?>
+                    <img src="<?php echo 'http://localhost' . $path ?>uploads/slider/2.jpg"></div>
+                    <div class="slide slide3">
+                    <?php 
+                    $path =$_SERVER['PHP_SELF'];
+                    $path = str_replace('index.php', '', $path);?>
+                    <img src="<?php echo 'http://localhost' . $path ?>uploads/slider/3.jpg"></div>
+                    <div class="slide slide4">
+                    <?php 
+                    $path =$_SERVER['PHP_SELF'];
+                    $path = str_replace('index.php', '', $path);?>
+                    <img src="<?php echo 'http://localhost' . $path ?>uploads/slider/4.jpg"></div>
                 </div>
                 <div class="section" id="gallery">
                     <div class="title">
@@ -70,6 +110,7 @@
                     </div>
                     <div class="gallery-images">
                         <div class="grid">
+                            <!--Portraits-->
 <?php $files = scandir('uploads/portraits');
 array_shift($files);
 array_shift($files);
@@ -87,6 +128,75 @@ else {?>
 
 <a href=<?php echo 'uploads/portraits/' . $f?> data-lightbox="image" class="grid-item portrait" data-category="portrait">
                                   <img src=<?php echo 'uploads/portraits/' . $f?>>
+                              </a>
+<?php }
+}
+}
+?>
+<!--Nature-->
+<?php $files = scandir('uploads/nature');
+array_shift($files);
+array_shift($files);
+
+if ($files !== false) 
+{
+foreach($files as $f) {
+  if($f[0]=='h' && $f[1]=='g'){?>
+
+<a href=<?php echo 'uploads/nature/' . $f?> data-lightbox="image" class="grid-item grid-height nature" data-category="nature">
+                                  <img src=<?php echo 'uploads/nature/' . $f?>>
+                              </a>
+<?php }
+else {?>
+
+<a href=<?php echo 'uploads/nature/' . $f?> data-lightbox="image" class="grid-item nature" data-category="nature">
+                                  <img src=<?php echo 'uploads/nature/' . $f?>>
+                              </a>
+<?php }
+}
+}
+?>
+<!--Wedding-->
+<?php $files = scandir('uploads/weddings');
+array_shift($files);
+array_shift($files);
+
+if ($files !== false) 
+{
+foreach($files as $f) {
+  if($f[0]=='h' && $f[1]=='g'){?>
+
+<a href=<?php echo 'uploads/weddings/' . $f?> data-lightbox="image" class="grid-item grid-height weddings" data-category="weddings">
+                                  <img src=<?php echo 'uploads/weddings/' . $f?>>
+                              </a>
+<?php }
+else {?>
+
+<a href=<?php echo 'uploads/weddings/' . $f?> data-lightbox="image" class="grid-item weddings" data-category="weddings">
+                                  <img src=<?php echo 'uploads/weddings/' . $f?>>
+                              </a>
+<?php }
+}
+}
+?>
+<!--Kids-->
+<?php $files = scandir('uploads/kids');
+array_shift($files);
+array_shift($files);
+
+if ($files !== false) 
+{
+foreach($files as $f) {
+  if($f[0]=='h' && $f[1]=='g'){?>
+
+<a href=<?php echo 'uploads/kids/' . $f?> data-lightbox="image" class="grid-item grid-height children" data-category="kids">
+                                  <img src=<?php echo 'uploads/kids/' . $f?>>
+                              </a>
+<?php }
+else {?>
+
+<a href=<?php echo 'uploads/kids/' . $f?> data-lightbox="image" class="grid-item children" data-category="kids">
+                                  <img src=<?php echo 'uploads/kids/' . $f?>>
                               </a>
 <?php }
 }

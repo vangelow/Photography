@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+$_SESSION['username']='admin';
+  if($_SESSION['username']=='admin'){
+?><!DOCTYPE html>
 <html>
 <body>
 
@@ -20,5 +23,7 @@
 </form>
 
 </body>
-</html>
+</html> <?php }?>
+
+
 

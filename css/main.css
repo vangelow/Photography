@@ -232,19 +232,19 @@ h1:after {
     height: 100vh;
 }
 #home .slide1 {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg') no-repeat center center;
+    
     background-size: cover;
 }
 #home .slide2 {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg') no-repeat center center;
+    
     background-size: cover;
 }
 #home .slide3 {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg') no-repeat center center;
+   
     background-size: cover;
 }
 #home .slide4 {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg') no-repeat center center;
+   
     background-size: cover;
 }
 .owl-prev {
@@ -509,3 +509,4 @@ h1:after {
 .clearfix {
     *zoom: 1;
 }
+
